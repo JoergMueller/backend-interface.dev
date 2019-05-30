@@ -3,15 +3,11 @@
   "username": "JoergMueller",
   "branch": "~2.0.0",
   "module": "AppComponent",
-  "modules": [
-    "router",
-    "forms",
-    "http"
-  ],
+  "modules": ["router", "forms", "http"],
   "transpilers": {
     "views": "none",
-    "scripts": "babel",
-    "styles": "none"
+    "scripts": "typescript",
+    "styles": "scss"
   },
-  "locale": "en"
+  "locale": "de"
 }
