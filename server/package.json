@@ -1,0 +1,13 @@
+{
+  "name": "backend-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {},
+  "author": "JoergMueller",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "mongoose": "^5.5.11",
+    "restify": "^8.3.2"
+  }
+}
