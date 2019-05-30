@@ -1,4 +1,7 @@
-
 export class User {
-    constructor(private name: string) {}
+  id;
+  username: string = '';
+  createdAt: Date = new Date();
+
+  constructor(private name: string) {}
 }

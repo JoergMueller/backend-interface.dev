@@ -61,11 +61,11 @@ export class SocketServer {
         console.log('Client disconnected');
       });
 
-      this.loadIoListener(false, socket);
+      this.loadIoListener();
     });
   }
 
-  async loadIoListener(f?: string | boolean, ...args: any[]) {
+  async loadIoListener(f?: string | boolean) {
     const _folder = _.isBoolean(f) ? path.resolve('./socket/') : f;
 
     await readdirSync(_folder).forEach((file) => {
@@ -78,7 +78,7 @@ export class SocketServer {
         _.assignIn(
           this,
           _.mapValues(_class, (value) => {
-            return activator(value, this.io, this.server, this.app, ...args);
+            return activator(value);
           }),
         );
       }
