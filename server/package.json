@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
-  "scripts": {},
+  "scripts": {
+    "watch": "nodemon -e ts -w ./ -i node_modules -x npm run watch:serve",
+    "watch:serve": "ts-node index.ts"
+  },
   "author": "JoergMueller",
   "dependencies": {
     "@types/express": "^4.16.1",
@@ -14,6 +17,7 @@
     "express": "^4.17.1",
     "lodash": "^4.17.11",
     "mongoose": "^5.5.11",
+    "nodemon": "^1.19.1",
     "restify": "^8.3.2",
     "rxjs": "^6.5.2",
     "socket.io": "^2.2.0"

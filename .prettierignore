@@ -1,15 +1,20 @@
 
 # node.js
-package.json
-package-lock.json
-node_modules
+server/package.json
+client/package.json
+server/package-lock.json
+client/package-lock.json
+server/node_modules
+client/node_modules
 
 # jest/typedoc
-coverage
-docs
+server/coverage
+client/coverage
+server/docs
+client/docs
 
 # gitlab
 .gitlab-ci.yml
 
 # application
-build
+client/build
