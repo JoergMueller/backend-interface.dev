@@ -9,5 +9,8 @@
     "lodash": "^4.17.11",
     "mongoose": "^5.5.11",
     "restify": "^8.3.2"
+  },
+  "devDependencies": {
+    "husky": "^2.3.0"
   }
 }
