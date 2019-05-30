@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "/client/build",
+    "outDir": "build",
     "sourceMap": true,
     "declaration": false,
     "module": "commonjs",

@@ -1,0 +1,13 @@
+{
+  "type": "application",
+  "username": "JoergMueller",
+  "branch": "~2.0.0",
+  "module": "AppComponent",
+  "modules": ["router", "forms", "http"],
+  "transpilers": {
+    "views": "none",
+    "scripts": "typescript",
+    "styles": "scss"
+  },
+  "locale": "de"
+}
