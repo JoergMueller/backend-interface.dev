@@ -18,15 +18,17 @@
     "async": "^3.0.1",
     "dotenv": "^8.0.0",
     "dotfile": "0.0.2",
-    "event-emitter": "^0.3.5",
     "events": "^3.0.0",
     "express": "^4.17.1",
+    "install": "^0.12.2",
     "lodash": "^4.17.11",
     "mongoose": "^5.5.11",
     "nodemon": "^1.19.1",
+    "npm": "^6.9.0",
     "restify": "^8.3.2",
     "rxjs": "^6.5.2",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "ts-events": "^3.2.1"
   },
   "devDependencies": {
     "husky": "^2.3.0"

@@ -1,6 +1,6 @@
-import { IOListenerI } from '../lib/lib';
+import { IOListenerI } from "../lib/lib";
 
-import * as _ from 'lodash';
+import * as _ from "lodash";
 
 export class UserSocketIO implements IOListenerI {
   private io: SocketIO.Server;
@@ -24,15 +24,18 @@ export class UserSocketIO implements IOListenerI {
   /* ----------------------------------------------- */
 
   prepare() {
-    this.io.on('connect', (socket: any) => {
-      socket.on('user:get', (data) => {
-        this.io.emit('message', 'user:get .... ws triggerd');
+    this.io.on("connect", (socket: any) => {
+      socket.on("user:get", (data) => {
+        this.io.emit("message", "user:get .... ws triggerd");
       });
-      socket.on('user:set', (data) => {
-        this.io.emit('message', 'user:set .... ws triggerd');
+      socket.on("user:set", (data) => {
+        this.io.emit("message", "user:set .... ws triggerd");
       });
-      socket.on('user:remove', (data) => {
-        this.io.emit('message', 'user:remove .... ws triggerd');
+      socket.on("user:add", (data) => {
+        this.io.emit("message", "user:add .... ws triggerd");
+      });
+      socket.on("user:remove", (data) => {
+        this.io.emit("message", "user:remove .... ws triggerd");
       });
     });
   }

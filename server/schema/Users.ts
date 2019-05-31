@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import * as mongoose from "mongoose";
 
 const preSchema = {
   createdAt: { type: Date, default: null },
@@ -6,7 +6,7 @@ const preSchema = {
   username: { type: String, index: true },
   userpassword: { type: String, index: true },
   email: { type: String, index: true },
-  status: { type: ['inactive', 'active', 'blocked', 'unverified'], default: 'unverified' },
+  status: { type: ["inactive", "active", "blocked", "unverified"], default: "unverified" },
 };
 
 const Users = (handler: any) => {
@@ -23,27 +23,27 @@ const Users = (handler: any) => {
       getters: true,
       virtuals: true,
     },
-    collection: 'Users',
+    collection: "Users",
   });
 
-  Schema.virtual('id').get((self: any) => {
+  Schema.virtual("id").get((self: any) => {
     return self._id;
   });
 
-  Schema.post('init', (doc) => {
-    return '%s has been initialized from the db ' + doc._id;
+  Schema.post("init", (doc) => {
+    return "%s has been initialized from the db " + doc._id;
   });
-  Schema.post('validate', (doc) => {
-    return '%s has been validated (but not saved yet) ' + doc._id;
+  Schema.post("validate", (doc) => {
+    return "%s has been validated (but not saved yet) " + doc._id;
   });
-  Schema.post('save', (doc) => {
-    return '%s has been saved ' + doc._id;
+  Schema.post("save", (doc) => {
+    return "%s has been saved " + doc._id;
   });
-  Schema.post('remove', (doc) => {
-    return '';
+  Schema.post("remove", (doc) => {
+    return "";
   });
 
-  handler.model('Users', Schema);
+  handler.model("Users", Schema);
   return Schema;
 };
 
