@@ -11,12 +11,6 @@
   "parser": "typescript",
   "overrides": [
     {
-      "files": "{*.json,.prettierrc,.huskyrc}",
-      "options": {
-        "parser": "json"
-      }
-    },
-    {
       "files": "*.md",
       "options": {
         "parser": "markdown"
