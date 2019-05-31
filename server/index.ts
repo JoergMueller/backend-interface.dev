@@ -1,9 +1,9 @@
-import { activator } from './lib/types';
-import * as dotenv from 'dotenv';
+import { activator } from "./lib/types";
+import * as dotenv from "dotenv";
 
 dotenv.config();
 
-import { Utils } from './lib/utils';
+import { Utils } from "./lib/utils";
 const _utils: Utils = activator(Utils);
 
 /* ----------------------------------------------- */
@@ -20,22 +20,22 @@ process.argv.forEach((arg) => {
 /* database handler
 /* ----------------------------------------------- */
 
-import mongooseLoader from './lib/handler-mongoose/src/libs/types';
+import mongooseLoader from "./lib/handler-mongoose/src/libs/types";
 
 mongooseLoader.prepare();
 mongooseLoader.loadConfig();
-mongooseLoader.loadModels(__dirname + '/schema', ['ts', 'js']);
+mongooseLoader.loadModels(__dirname + "/schema", ["ts", "js"]);
 
 /* start chat socket server
 /* ----------------------------------------------- */
 
-import { ChatServer } from './lib/chat-server';
+import { ChatServer } from "./lib/chat-server";
 const _chatServer: ChatServer = new ChatServer();
 
 /* start backend socket server
 /* ----------------------------------------------- */
 
-import { SocketServer } from './lib/socket-server';
+import { SocketServer } from "./lib/socket-server";
 const _socketServer: SocketServer = new SocketServer();
 
 /* PROCESS THE ARGS

@@ -11,7 +11,7 @@
     "prettier:ci": "prettier --config './.prettierrc' --list-different '.huskyrc' '.prettierrc' './**/*.{ts,tsx,js,jsx,json,md,scss,yml}'",
     "coverage": "npm run coverage:clean && npm run coverage:generate",
     "coverage:clean": "rm -rf ./coverage",
-    "coverage:generate": "jest --config=jest.json --coverage",
+    "coverage:generate": "jest --config=jest.json --coverage --passWithNoTests",
     "docs": "npm run docs:clean && npm run docs:generate",
     "docs:clean": "rm -rf ./docs",
     "docs:generate": "typedoc --options './typedoc.json' './src'",
