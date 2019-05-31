@@ -30,7 +30,6 @@ export class DevelopmentComponent implements OnInit {
 
   private generateUsers(response: any): void {
     for (const user of response) {
-      console.log(user);
       this.socket.trigger("user:add", user);
     }
   }
