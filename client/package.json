@@ -5,11 +5,15 @@
     "ng": "ng",
     "lint": "npm run prettier && npm run lint:check",
     "lint:check": "tslint --project ./tsconfig.json --config ./tslint.json --format codeFrame",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint:ci": "tslint --project ./tsconfig.json --config ./tslint.json --format codeFrame",
+    "prettier": "prettier --config './.prettierrc' --write '.huskyrc' '.prettierrc' './**/*.{ts,tsx,js,jsx,json,md,scss,yml}'",
+    "prettier:ci": "prettier --config './.prettierrc' --list-different '.huskyrc' '.prettierrc' './**/*.{ts,tsx,js,jsx,json,md,scss,yml}'",
+    "coverage": "npm run coverage:clean && npm run coverage:generate",
+    "coverage:clean": "rm -rf ./coverage",
+    "coverage:generate": "jest --config=jest.json --coverage",
+    "docs": "npm run docs:clean && npm run docs:generate",
+    "docs:clean": "rm -rf ./docs",
+    "docs:generate": "typedoc --options './typedoc.json' './src'"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +40,7 @@
     "rxjs-compat": "^6.5.2",
     "socket.io": "^2.2.0",
     "tslib": "^1.9.0",
+    "typedoc": "^0.14.2",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -55,7 +60,7 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
+    "tslint": "^5.15.0",
     "typescript": "~3.4.3"
   }
 }
