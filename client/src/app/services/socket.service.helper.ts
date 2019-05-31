@@ -3,14 +3,16 @@ import { SocketIoConfig, Socket } from "ng6-socket-io";
 
 import * as moment from "moment";
 
-
-declar const  Moment;
 export const configBackend: SocketIoConfig = { url: "ws://localhost:3128", options: {} };
 
 @Injectable()
 export class SocketBackend extends Socket {
   constructor(ngZone: NgZone) {
     super(configBackend, ngZone);
+  }
+
+  trigger(chanel: string, data?: any) {
+    this.emit(chanel, data);
   }
 
   getMessage() {
@@ -22,7 +24,7 @@ export const configCommunication: SocketIoConfig = { url: "ws://localhost:3129",
 
 @Injectable()
 export class SocketCommunication extends Socket {
-  sendMessages: any = false;
+  sendMessages: any[] = [];
 
   constructor(ngZone: NgZone) {
     super(configCommunication, ngZone);
@@ -30,7 +32,8 @@ export class SocketCommunication extends Socket {
 
   sendMessage(msg: string) {
     this.sendMessages.push({
-      stamp: Moment().format("YYYY-mm-dd"),
+      stamp: moment().unix(),
+      message: msg,
     });
     this.emit("message", msg);
   }

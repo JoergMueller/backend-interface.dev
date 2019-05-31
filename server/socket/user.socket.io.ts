@@ -32,6 +32,8 @@ export class UserSocketIO implements IOListenerI {
         this.io.emit("message", "user:set .... ws triggerd");
       });
       socket.on("user:add", (data) => {
+        console.log(data);
+
         this.io.emit("message", "user:add .... ws triggerd");
       });
       socket.on("user:remove", (data) => {
