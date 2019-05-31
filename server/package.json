@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "lint": "npm run prettier && npm run lint:check",
+    "lint:check": "tslint --project ./tsconfig.json --config ./tslint.json --format codeFrame",
     "watch": "nodemon -e ts -w ./ -i node_modules -x npm run watch:serve",
     "watch:serve": "ts-node index.ts"
   },
