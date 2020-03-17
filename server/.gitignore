@@ -10,6 +10,7 @@ bazel-out
 
 # dependencies
 node_modules
+lib/handler*
 
 # profiling files
 chrome-profiler-events.json
@@ -43,5 +44,6 @@ testem.log
 typings
 
 # System Files
+.env
 .DS_Store
 Thumbs.db

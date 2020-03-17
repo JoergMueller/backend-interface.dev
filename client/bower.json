@@ -8,6 +8,6 @@
     "ui-router": "^0.2",
     "lodash": "^3.5",
     "angular-extend-promises": "^1.0",
-    "socket.io-client": "^1.2",
+    "socket.io-client": "^1.2"
   }
 }

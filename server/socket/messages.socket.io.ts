@@ -2,7 +2,7 @@ import { IOListenerI } from "../lib/lib";
 
 import * as _ from "lodash";
 
-export class UserSocketIO implements IOListenerI {
+export class MessagesSocketIO implements IOListenerI {
   private io: SocketIO.Server;
 
   /* ----------------------------------------------- */
@@ -25,19 +25,17 @@ export class UserSocketIO implements IOListenerI {
 
   prepare() {
     this.io.on("connect", (socket: any) => {
-      socket.on("user:get", (data) => {
-        this.io.emit("message", "user:get .... ws triggerd");
+      socket.on("messages:get", (data) => {
+        this.io.emit("message", "messages:get .... ws triggerd");
       });
-      socket.on("user:set", (data) => {
-        this.io.emit("message", "user:set .... ws triggerd");
+      socket.on("messages:set", (data) => {
+        this.io.emit("message", "messages:set .... ws triggerd");
       });
-      socket.on("user:add", (data) => {
-        console.log(data);
-
-        this.io.emit("message", "user:add .... ws triggerd");
+      socket.on("messages:add", (data) => {
+        this.io.emit("message", "messages:add .... ws triggerd");
       });
-      socket.on("user:remove", (data) => {
-        this.io.emit("message", "user:remove .... ws triggerd");
+      socket.on("messages:remove", (data) => {
+        this.io.emit("message", "messages:remove .... ws triggerd");
       });
     });
   }

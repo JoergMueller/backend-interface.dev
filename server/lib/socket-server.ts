@@ -1,15 +1,15 @@
-import { createServer, Server } from 'http';
-import * as express from 'express';
-import * as socketIo from 'socket.io';
-import * as dotenv from 'dotenv';
-import * as path from 'path';
-import { readdirSync } from 'fs';
+import { createServer, Server } from "http";
+import * as express from "express";
+import * as socketIo from "socket.io";
+import * as dotenv from "dotenv";
+import * as path from "path";
+import { readdirSync } from "fs";
 
-import { IOListenerI } from './lib';
-import { activator } from './types';
-import { Utils } from './utils';
+import { IOListenerI } from "./lib";
+import { activator } from "./types";
+import { Utils } from "./utils";
 
-import * as _ from 'lodash';
+import * as _ from "lodash";
 
 dotenv.config();
 
@@ -51,22 +51,22 @@ export class SocketServer {
 
   private listen(): void {
     this.server.listen(this.port, () => {
-      console.log('Running server on port %s', this.port);
+      console.log("Running server on port %s", this.port);
     });
 
-    this.io.on('connect', (socket: any) => {
-      console.log('Connected client on port %s.', this.port);
+    this.io.on("connect", (socket: any) => {
+      console.log("Connected client on port %s.", this.port);
 
-      socket.on('disconnect', () => {
-        console.log('Client disconnected');
+      socket.on("disconnect", () => {
+        console.log("Client disconnected");
       });
 
-      this.loadIoListener(false, socket);
+      this.loadIoListener();
     });
   }
 
-  async loadIoListener(f?: string | boolean, ...args: any[]) {
-    const _folder = _.isBoolean(f) ? path.resolve('./socket/') : f;
+  async loadIoListener(f: string = "") {
+    const _folder = f.length <= 0 ? path.resolve("./socket/") : f;
 
     await readdirSync(_folder).forEach((file) => {
       this.listenerFiles.push(file);
@@ -74,18 +74,18 @@ export class SocketServer {
       const name = this.validateName(file);
       if (name) {
         let _className = this.utils.camelize(name);
-        const _class = require([_folder, name].join('/'));
+        const _class = require([_folder, name].join("/"));
         _.assignIn(
           this,
           _.mapValues(_class, (value) => {
-            return activator(value, this.io, this.server, this.app, ...args);
+            return activator(value);
           }),
         );
       }
     });
   }
 
-  validateName(file: string, allowedExt: string[] = ['ts', 'js']): string | boolean {
+  validateName(file: string, allowedExt: string[] = ["ts", "js"]): string | boolean {
     const { name, ext } = path.parse(file);
     if (ext.length === 0 || name.length === 0) {
       return false;

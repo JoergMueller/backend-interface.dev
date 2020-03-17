@@ -11,6 +11,7 @@ bazel-out
 # dependencies
 client/node_modules
 server/node_modules
+server/lib/handler-mongoose
 client/build
 
 # IDEs and editors
